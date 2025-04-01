@@ -1,9 +1,0 @@
-{
-  "identity": {
-    "file_name": "identity.json"
-  },
-  "sft": {
-    "file_name": "alpaca.json"
-  }
-  
-}
