@@ -33,7 +33,7 @@ python Src/download.py
 Negative sample candidate set generation and false negative sample filtering are performed by running the following commands.
 
 ```
-Cd Src
+cd Src
 python hard_neg/hard_candidate.py
 python hard_neg/llm_f.py
 ```
