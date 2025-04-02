@@ -1,24 +1,14 @@
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto; max-width: 800px;">
 
   <!-- 图片和标题 -->
-  <img src="figs/logo.png" alt="DMDR Logo" width="700">
+  <img src="figs/logo.png" alt="DMDR Logo" width="650">
   <div style="font-size: 24px; font-weight: bold; margin-top: 10px;"></div>
 
-  <!-- 副标题 -->
-  <h2 style="margin-top: 20px;">A Data-Driven Framework for Multilingual Dense Retrieval</h2>
-
-  <!-- 标签栏（可选） -->
-  <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;">
-    <span style="background-color: #f0ad4e; padding: 2px 10px; border-radius: 5px;">Stars: 46k</span>
-    <span style="background-color: #5bc0de; padding: 2px 10px; border-radius: 5px;">last commit: today</span>
-    <span style="background-color: #d9534f; padding: 2px 10px; border-radius: 5px;">contributors: 162</span>
-  </div>
-
 </div>
 
 </div>
 
-# A Data-Driven Framework for Multilingual Dense Retrieval
+# **A Data-Driven Framework for Multilingual Dense Retrieval**
 
 This repository contains the code for the paper "A Data-Driven Framework for Multilingual Dense Retrieval"
 
