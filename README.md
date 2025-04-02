@@ -1,7 +1,7 @@
 <div style="display: flex; align-items: center;">
 
   <div style="margin-right: 20px;">
-    <img src="figs/logo.png" alt="DMDR Logo" width="100">
+    <img src="figs/logo.png" alt="DMDR Logo" width="300">
     <div style="text-align: center; font-size: 24px; font-weight: bold;">DMDR</div>
   </div>
 
@@ -14,18 +14,6 @@
       <span style="background-color: #5cb85c; padding: 2px 10px; border-radius: 5px;">tests passing</span>
       <span style="background-color: #ff0; padding: 2px 10px; border-radius: 5px;">citation: 929</span>
       <span style="background-color: #5cb85c; padding: 2px 10px; border-radius: 5px;">PRs welcome</span>
-    </div>
-    <div style="display: flex; gap: 10px;">
-      <a href="#" style="background-color: #007bff; color: white; padding: 2px 10px; border-radius: 5px;">Follow @llamafactory_ai</a>
-      <a href="#" style="background-color: #007bff; color: white; padding: 2px 10px; border-radius: 5px;">LLaMA Factory</a>
-      <a href="#" style="background-color: #ffc107; color: white; padding: 2px 10px; border-radius: 5px;">G-Stars</a>
-      <a href="#" style="background-color: #28a745; color: white; padding: 2px 10px; border-radius: 5px;">Open in Colab</a>
-      <a href="#" style="background-color: #dc3545; color: white; padding: 2px 10px; border-radius: 5px;">Open in PAI-DSW</a>
-      <a href="#" style="background-color: #6f42c1; color: white; padding: 2px 10px; border-radius: 5px;">Open in Spaces</a>
-      <a href="#" style="background-color: #17a2b8; color: white; padding: 2px 10px; border-radius: 5px;">ModelScope</a>
-      <a href="#" style="background-color: #007bff; color: white; padding: 2px 10px; border-radius: 5px;">Open in Studios</a>
-      <a href="#" style="background-color: #28a745; color: white; padding: 2px 10px; border-radius: 5px;">Sagemaker</a>
-      <a href="#" style="background-color: #ff9800; color: white; padding: 2px 10px; border-radius: 5px;">Open in AWS</a>
     </div>
   </div>
 
