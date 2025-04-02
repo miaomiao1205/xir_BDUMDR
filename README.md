@@ -27,11 +27,11 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 
 ## 1.Environment
 Follow the commands below to establish a plausible environment.
-'''bash
+```bash
 conda create --name dmdr python=3.7
 conda activate dmdr
 pip install -r requirements.txt
-'''
+```
 
 ## 2.Data and Models Preparation
 
