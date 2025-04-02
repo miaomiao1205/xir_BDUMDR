@@ -1,22 +1,25 @@
-<div style="display: flex; align-items: center;">
-
-<div style="margin-right: 0px; margin-left: -250px; margin-top: -250px;">
-    <img src="figs/logo.png" alt="DMDR Logo" width="300">
-    <div style="text-align: center; font-size: 24px; font-weight: bold;"></div>
-</div>
-
-  <div>
-    <h2>A Data-Driven Framework for Multilingual Dense Retrieval</h2>
-    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-      <span style="background-color: #f0ad4e; padding: 2px 10px; border-radius: 5px;">Stars: 46k</span>
-      <span style="background-color: #5bc0de; padding: 2px 10px; border-radius: 5px;">last commit: today</span>
-      <span style="background-color: #d9534f; padding: 2px 10px; border-radius: 5px;">contributors: 162</span>
-      <span style="background-color: #5cb85c; padding: 2px 10px; border-radius: 5px;">tests passing</span>
-      <span style="background-color: #ff0; padding: 2px 10px; border-radius: 5px;">citation: 929</span>
-      <span style="background-color: #5cb85c; padding: 2px 10px; border-radius: 5px;">PRs welcome</span>
-    </div>
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+  <!-- 左侧大图 -->
+  <div style="flex: 1;">
+    <img src="figs/logo.png" alt="Left Image" style="width: 200%; border-radius: 8px;">
   </div>
 
+  <!-- 右侧文字 + 右下小图 -->
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+      <h3></h3>
+      <p>A Data-Driven Framework for Multilingual Dense Retrieval</p>
+      <ul>
+        <li>项目 1</li>
+        <li>项目 2</li>
+      </ul>
+    </div>
+
+    <!-- 右下小图 -->
+    <div style="align-self: flex-end;">
+      <img src="right-bottom-image.jpg" alt="Small Image" style="width: 150px; border-radius: 4px;">
+    </div>
+  </div>
 </div>
 
 # A Data-Driven Framework for Multilingual Dense Retrieval
