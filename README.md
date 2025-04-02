@@ -18,23 +18,22 @@ Multilingual dense retrieval aims to retrieve relevant documents across multiple
 Our DMDR framework including three stages: i) construction of hard negative set, ii) LLM-aided hard negative generation, and iii) effective mini-batch construction to facilitate contrastive learning.
 
 # 👉 Quick Start
-Table of Contents:
-* Environment
-* Data Preparation
-* Negative samples construction and False negative samples filtering
-* LLM-aided hard negative samples generation
-* Train and Evaluation
+# Table of Contents:
+* [Environment]
+* [Data and Models Preparation]
+* [Negative samples construction and False negative samples filtering]
+* [LLM-aided hard negative samples generation]
+* [Train and Evaluation]
 
-# Environment Dependency
+## 1.Environment
 
 
-# Running Steps
 
-## 1.Download data and models
+## 2.Data and Models Preparation
 
 For public datasets and checkpoints can be download from [MIRACL](https://huggingface.co/datasets/miracl/miracl-corpus)、[Alpaca](https://github.com/tatsu-lab/stanford_alpaca)、[mDPR](https://huggingface.co/castorini/mdpr-tied-pft-msmarco)、[mE5<sub>large</sub>](https://huggingface.co/intfloat/multilingual-e5-large) and [BGE](https://huggingface.co/BAAI/bge-m3). Then put them in the Data and PLM folders.
 
-## 2.Generate candidate negative samples and false negative sample filtering
+## 3.Negative samples construction and False negative samples filtering
 
 Negative sample candidate set generation and false negative sample filtering are performed by running the following commands.
 
@@ -44,7 +43,7 @@ python hard_neg/candidate_generation.py
 python hard_neg/llm_fitering.py
 ```
 
-## 3.LLM-aided Hard Negative Generation
+## 4.LLM-aided Hard Negative Generation
 
 **LLaMA-Factory installation**
 
@@ -80,7 +79,7 @@ python LLM_generation/inference.py
 python hard_neg/candidate_generation.py
 ```
 
-## 4.Train DMDR
+## 5.Train and Evaluation
 
 **Tevatron installation**
 
@@ -114,9 +113,6 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 nohup python -m torch.distributed.launch --master_p
   --negatives_x_device > 
 ```
 
-
-
-## 5.Evaluation
 
 **Encoding**
 
