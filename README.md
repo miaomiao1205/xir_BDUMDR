@@ -25,7 +25,7 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 * [LLM-aided hard negative samples generation](#llm-aided-hard-negative-samples-generation)
 * [Train and Evaluation](#train-and-evaluation)
 
-## 1.Environment
+## 1. Environment
 Follow the commands below to establish a plausible environment.
 ```bash
 conda create --name dmdr python=3.7
