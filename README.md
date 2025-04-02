@@ -22,7 +22,7 @@ pyserini 0.22.1
 
 ## 1.Download data and models
 
-For public datasets and checkpoints can be download from [MIRACL](https://huggingface.co/datasets/miracl/miracl-corpus)、[Alpaca]([tatsu-lab/stanford_alpaca: Code and documentation to train Stanford's Alpaca models, and generate the data.](https://github.com/tatsu-lab/stanford_alpaca))、[mDPR]([castorini/mdpr-tied-pft-msmarco · HF Mirror](https://hf-mirror.com/castorini/mdpr-tied-pft-msmarco))、[mE5<sub>large</sub>]([castorini/mdpr-tied-pft-msmarco · HF Mirror](https://hf-mirror.com/castorini/mdpr-tied-pft-msmarco)) and [BGE]([BAAI/bge-m3 · HF Mirror](https://hf-mirror.com/BAAI/bge-m3)). Then put them in the Data and PLM folders.
+For public datasets and checkpoints can be download from [MIRACL](https://huggingface.co/datasets/miracl/miracl-corpus)、[Alpaca](https://github.com/tatsu-lab/stanford_alpaca)、[mDPR](https://huggingface.co/castorini/mdpr-tied-pft-msmarco)、[mE5<sub>large</sub>](https://huggingface.co/intfloat/multilingual-e5-large) and [BGE](https://huggingface.co/BAAI/bge-m3). Then put them in the Data and PLM folders.
 
 ## 2.Generate candidate negative samples and false negative sample filtering
 
