@@ -1,13 +1,13 @@
-<div style="display: flex; flex-wrap: wrap; align-items: flex-start; margin-top: -100px; margin-left: -150px;">
+<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: -50px; margin-left: -50px;">
 
-  <div style="margin-right: 20px;">
+  <div style="text-align: center;">
     <img src="figs/logo.png" alt="DMDR Logo" width="300">
-    <div style="text-align: center; font-size: 24px; font-weight: bold;">DMDR</div>
+    <div style="font-size: 24px; font-weight: bold;">DMDR</div>
   </div>
 
-  <div style="margin-top: 50px;">
-    <h2 style="margin-bottom: 10px;">A Data-Driven Framework for Multilingual Dense Retrieval</h2>
-    <div style="display: flex; gap: 10px;">
+  <div style="margin-left: 20px; text-align: left;">
+    <h2>A Data-Driven Framework for Multilingual Dense Retrieval</h2>
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
       <span style="background-color: #f0ad4e; padding: 2px 10px; border-radius: 5px;">Stars: 46k</span>
       <span style="background-color: #5bc0de; padding: 2px 10px; border-radius: 5px;">last commit: today</span>
       <span style="background-color: #d9534f; padding: 2px 10px; border-radius: 5px;">contributors: 162</span>
