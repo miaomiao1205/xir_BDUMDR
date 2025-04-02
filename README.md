@@ -1,4 +1,6 @@
-<img src="figs/logo.png" alt="DMDR Logo" width="650">
+<div align="center">
+  <img src="figs/logo.png" alt="DMDR Logo" width="650">
+</div>
 
 
 # A Data-Driven Framework for Multilingual Dense Retrieval
