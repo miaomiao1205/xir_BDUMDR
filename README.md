@@ -50,7 +50,7 @@ python hard_neg/llm_fitering.py
 ## 4. LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-samples-generation"></a>
 At this stage, we finetune LLaMA-3.1-70B with the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) tool to generate difficult negative samples.
 
-**LLaMA-Factory installation**
+>**LLaMA-Factory installation**
 
 Run the following command to quickly install LLaMA-Factory.
 
