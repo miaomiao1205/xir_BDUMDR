@@ -60,7 +60,7 @@ cd LLaMA-Factory
 pip install -e ".[torch,metrics]"
 ```
 
-**Multilingual Instruction Fine-tuning**
+>**Multilingual Instruction Fine-tuning**
 
 First, we use multilingual version of the Alpaca dataset for multilingual instruction fine-tuning. The multilingual version of the Alpaca dataset is obtained by running the following script.
 
@@ -76,7 +76,7 @@ llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
 llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml
 ```
 
-**Hard Negative Samples Generation**
+>**Hard Negative Samples Generation**
 
 Use the following two scripts to generate the summary, the query, and the hard negative samples in turn.
 
@@ -88,7 +88,7 @@ python hard_neg/candidate_generation.py
 
 ## 5. Train and EvaluationEnvironment <a name="train-and-evaluation"></a>
 
-**Tevatron installation**
+>**Tevatron installation**
 We use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for DMDR training. Run the following command for a quick tevatron installation.
 
 ```bash
@@ -96,7 +96,7 @@ cd src/tevatron
 pip install --editable .
 ```
 
-**Train**
+>**Train**
 
 We train on a machine with 2xH100 GPU, if the GPU resources are limited for you, please train with gradient cache. To train DMDR, please run the following commands.
 
@@ -123,7 +123,7 @@ CUDA_VISIBLE_DEVICES=0,1 nohup python -m torch.distributed.launch --master_port 
 
 The query and document lengths are set to 64 and 256, train_n_passages is set to 8, which means that one positive and seven negative samples will be used for each query during training, bacth_size is set to 12, and epochs are set to 16.
 
-**Encoding**
+>**Encoding**
 
 After training, we need to encode the query and the document separately. To encode query and corpus, use the following two commands, respectively.
 
@@ -176,7 +176,7 @@ do
 done
 ```
 
-**Dense Retrieval**
+>**Dense Retrieval**
 
 After encoding the query and document, vector retrieval is performed using faiss on the two resulting .pkl files by running the following command.
 
@@ -196,7 +196,7 @@ nohup python -m tevatron.faiss_retriever \
 ```
 
 
-**Evaluation**
+>**Evaluation**
 
 Finally, use the pyserini tool to evaluate the retrieval performance by running the following command.
 
