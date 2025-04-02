@@ -21,13 +21,14 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 # Table of Contents:
 * [Environment](#environment)
 * [Data and Models Preparation](#data-and-models-preparation)
-* [Negative samples construction and False negative samples filtering](#negative-samples-construction-and-false-negative-samples-filtering
+* [Negative samples construction and False negative samples filtering](#negative-samples-construction-and-false-negative-samples-filtering)
 * [LLM-aided hard negative samples generation](#llm-aided-hard-negative-samples-generation)
 * [Train and Evaluation](#train-and-evaluation)
 
 ## 1.Environment
 Follow the commands below to establish a plausible environment.
-'''conda create --name dmdr python=3.7
+'''
+conda create --name dmdr python=3.7
 conda activate dmdr
 pip install -r requirements.txt
 
