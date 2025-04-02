@@ -18,22 +18,15 @@ Multilingual dense retrieval aims to retrieve relevant documents across multiple
 Our DMDR framework including three stages: i) construction of hard negative set, ii) LLM-aided hard negative generation, and iii) effective mini-batch construction to facilitate contrastive learning.
 
 # 👉 Quick Start
+Table of Contents:
+* Environment
+* Data Preparation
+* Negative samples construction and False negative samples filtering
+* LLM-aided hard negative samples generation
+* Train and Evaluation
 
 # Environment Dependency
 
-Main packages：
-
-Python 3.7
-
-torch 1.10.1
-
-transformers 4.15.0
-
-faiss-gpu 1.7.2
-
-datasets 1.17.0
-
-pyserini 0.22.1
 
 # Running Steps
 
