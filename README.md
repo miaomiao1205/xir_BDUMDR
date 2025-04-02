@@ -15,7 +15,9 @@ Multilingual dense retrieval aims to retrieve relevant documents across multiple
   <img src="figs/DMDR.png" alt="DMDR ">
 </div>
 
-Overview of our DMDR framework including three stages: i) construction of hard negative set, ii) LLM-aided hard negative generation, and iii) effective mini-batch construction to facilitate contrastive learning.
+Our DMDR framework including three stages: i) construction of hard negative set, ii) LLM-aided hard negative generation, and iii) effective mini-batch construction to facilitate contrastive learning.
+
+# 👉 Quick Start
 
 # Environment Dependency
 
