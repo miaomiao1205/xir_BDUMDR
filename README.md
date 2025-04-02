@@ -123,6 +123,7 @@ CUDA_VISIBLE_DEVICES=0,1 nohup python -m torch.distributed.launch --master_port 
 The query and document lengths are set to 64 and 256, train_n_passages is set to 8, which means that one positive and seven negative samples will be used for each query during training, bacth_size is set to 12, and epochs are set to 16.
 
 **Encoding**
+
 After training, we need to encode the query and the document separately. To encode query and corpus, use the following two commands, respectively.
 
 ```bash
