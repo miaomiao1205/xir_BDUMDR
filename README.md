@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 <div align="center">
   <img src="figs/logo.png" alt="DMDR Logo" width="500">
 </div>
@@ -12,7 +10,7 @@ This repository contains the code and the generated hard negative samples for th
 # 📄 Abstract
 Multilingual dense retrieval aims to retrieve relevant documents across multiple languages. The challenge lies in aligning representations of different languages in a shared vector space.The common practice is to fine-tune the dense retriever via contrastive learning, whose effectiveness highly relies on the quality of the negative sample and the construction of mini-batch data. In this study, we propose a data-driven framework DMDR for multilingual dense retrieval fine-tuning by obtaining high-quality hard negative samples and effective mini-batch data and integrating the negative sampling weight with the contrastive learning objective. The extensive experimental results on a multilingual retrieval benchmark MIRACL demonstrate the effectiveness of our proposed DMDR by outperforming several existing strong baselines.
 
-# <i class="far fa-vector-square" /> The framework of DMDR.
+# 🤩 The framework of DMDR
 <div align="center">
   <img src="figs/DMDR.png" alt="DMDR ">
 </div>
