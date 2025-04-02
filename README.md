@@ -149,7 +149,7 @@ CUDA_VISIBLE_DEVICES=${ID} nohup python -m tevatron.driver.encode \
   --encode_is_qry > 
 ```
 
-Corpus
+Encoding corpus
 
 ```bash
 # encoding corpus
