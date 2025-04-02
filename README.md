@@ -1,3 +1,4 @@
+！[logo](figs/logo.png)
 # A Data-Driven Framework for Multilingual Dense Retrieval
 
 This repository contains the code for the paper "A Data-Driven Framework for Multilingual Dense Retrieval"
