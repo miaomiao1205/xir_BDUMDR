@@ -1,12 +1,7 @@
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto; max-width: 800px;">
+<img src="figs/logo.png" alt="DMDR Logo" width="650">
 
-  <!-- 图片和标题 -->
-  <img src="figs/logo.png" alt="DMDR Logo" width="650">
-  <div style="font-size: 24px; font-weight: bold; margin-top: 10px;"></div>
 
-</div>
-
-# **A Data-Driven Framework for Multilingual Dense Retrieval**
+# A Data-Driven Framework for Multilingual Dense Retrieval
 
 This repository contains the code for the paper "A Data-Driven Framework for Multilingual Dense Retrieval"
 
