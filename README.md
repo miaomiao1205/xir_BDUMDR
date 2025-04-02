@@ -1,8 +1,8 @@
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto; max-width: 800px;">
 
   <!-- 图片和标题 -->
-  <img src="figs/logo.png" alt="DMDR Logo" width="300">
-  <div style="font-size: 24px; font-weight: bold; margin-top: 10px;">DMDR</div>
+  <img src="figs/logo.png" alt="DMDR Logo" width="500">
+  <div style="font-size: 24px; font-weight: bold; margin-top: 10px;"></div>
 
   <!-- 副标题 -->
   <h2 style="margin-top: 20px;">A Data-Driven Framework for Multilingual Dense Retrieval</h2>
