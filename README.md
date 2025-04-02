@@ -1,26 +1,20 @@
-<div style="display: flex; justify-content: center; align-items: center; gap: 50px; margin: 20px auto; max-width: 1200px;">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto; max-width: 800px;">
 
-  <!-- 左侧内容（可留空或放其他元素） -->
-  <div style="flex: 1;"></div>
+  <!-- 图片和标题 -->
+  <img src="figs/logo.png" alt="DMDR Logo" width="300">
+  <div style="font-size: 24px; font-weight: bold; margin-top: 10px;">DMDR</div>
 
-  <!-- 中间图片 -->
-  <div style="text-align: center;">
-    <img src="figs/logo.png" alt="DMDR Logo" width="300">
-    <div style="font-size: 24px; font-weight: bold;">DMDR</div>
+  <!-- 副标题 -->
+  <h2 style="margin-top: 20px;">A Data-Driven Framework for Multilingual Dense Retrieval</h2>
+
+  <!-- 标签栏（可选） -->
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;">
+    <span style="background-color: #f0ad4e; padding: 2px 10px; border-radius: 5px;">Stars: 46k</span>
+    <span style="background-color: #5bc0de; padding: 2px 10px; border-radius: 5px;">last commit: today</span>
+    <span style="background-color: #d9534f; padding: 2px 10px; border-radius: 5px;">contributors: 162</span>
   </div>
 
-  <!-- 右侧内容（标题和标签） -->
-  <div style="flex: 1; margin-left: 20px;">
-    <h2>A Data-Driven Framework for Multilingual Dense Retrieval</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
-      <span style="background-color: #f0ad4e; padding: 2px 10px; border-radius: 5px;">Stars: 46k</span>
-      <span style="background-color: #5bc0de; padding: 2px 10px; border-radius: 5px;">last commit: today</span>
-      <span style="background-color: #d9534f; padding: 2px 10px; border-radius: 5px;">contributors: 162</span>
-      <span style="background-color: #5cb85c; padding: 2px 10px; border-radius: 5px;">tests passing</span>
-      <span style="background-color: #ff0; padding: 2px 10px; border-radius: 5px;">citation: 929</span>
-      <span style="background-color: #5cb85c; padding: 2px 10px; border-radius: 5px;">PRs welcome</span>
-    </div>
-  </div>
+</div>
 
 </div>
 
