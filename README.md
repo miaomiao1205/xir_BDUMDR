@@ -19,7 +19,7 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 
 # 👉 Quick Start
 # Table of Contents:
-* [Environment]
+* [Environment](#environment)
 * [Data and Models Preparation]
 * [Negative samples construction and False negative samples filtering]
 * [LLM-aided hard negative samples generation]
