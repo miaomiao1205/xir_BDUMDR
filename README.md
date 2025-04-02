@@ -1,7 +1,7 @@
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto; max-width: 800px;">
 
   <!-- 图片和标题 -->
-  <img src="figs/logo.png" alt="DMDR Logo" width="600">
+  <img src="figs/logo.png" alt="DMDR Logo" width="700">
   <div style="font-size: 24px; font-weight: bold; margin-top: 10px;"></div>
 
   <!-- 副标题 -->
