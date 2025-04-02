@@ -60,13 +60,12 @@ llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
 llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml
 ```
 
-**Positive-Driven Back-Forward Generation**
+**Hard Negative Samples Generation**
 
 Use the following two scripts to generate the summary, the query, and the hard negative samples in turn.
 
 ```
 cd Src
-
 python LLM_generation/inference.py
 python hard_neg/candidate_generation.py
 ```
