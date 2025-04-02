@@ -12,7 +12,7 @@ Multilingual dense retrieval aims to retrieve relevant documents across multiple
 
 # <i class="far fa-vector-square" /> The framework of DMDR.
 <div align="center">
-  <img src="figs/DMDR.png" alt="DMDR " width="500">
+  <img src="figs/DMDR.png" alt="DMDR ">
 </div>
 
 # Environment Dependency
