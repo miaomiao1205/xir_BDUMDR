@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="figs/logo.png" alt="DMDR Logo" width="650">
+  <img src="figs/logo.png" alt="DMDR Logo" width="500">
 </div>
 
 
