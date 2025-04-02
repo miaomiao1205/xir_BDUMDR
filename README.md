@@ -1,7 +1,7 @@
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: -50px; margin-left: -50px;">
 
   <div style="text-align: center;">
-    <img src="figs/logo.png" alt="DMDR Logo" width="300">
+    <img src="figs/logo.png" alt="DMDR Logo" width="400">
     <div style="font-size: 24px; font-weight: bold;">DMDR</div>
   </div>
 
