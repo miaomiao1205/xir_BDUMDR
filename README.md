@@ -1,13 +1,18 @@
-<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: -50px; margin-left: -50px;">
+<div style="display: flex; justify-content: center; align-items: center; gap: 50px; margin: 20px auto; max-width: 1200px;">
 
+  <!-- 左侧内容（可留空或放其他元素） -->
+  <div style="flex: 1;"></div>
+
+  <!-- 中间图片 -->
   <div style="text-align: center;">
-    <img src="figs/logo.png" alt="DMDR Logo" width="400">
+    <img src="figs/logo.png" alt="DMDR Logo" width="300">
     <div style="font-size: 24px; font-weight: bold;">DMDR</div>
   </div>
 
-  <div style="margin-left: 20px; text-align: left;">
+  <!-- 右侧内容（标题和标签） -->
+  <div style="flex: 1; margin-left: 20px;">
     <h2>A Data-Driven Framework for Multilingual Dense Retrieval</h2>
-    <div style="display: flex; gap: 10px; margin-top: 10px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
       <span style="background-color: #f0ad4e; padding: 2px 10px; border-radius: 5px;">Stars: 46k</span>
       <span style="background-color: #5bc0de; padding: 2px 10px; border-radius: 5px;">last commit: today</span>
       <span style="background-color: #d9534f; padding: 2px 10px; border-radius: 5px;">contributors: 162</span>
