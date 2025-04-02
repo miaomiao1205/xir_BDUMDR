@@ -39,7 +39,7 @@ For public datasets and checkpoints can be download from [MIRACL](https://huggin
 
 ## 3. Negative samples construction and False negative samples filtering <a name="negative-samples-construction-and-false-negative-samples-filtering"></a>
 
-Run the following two python scripts for hard negative candidate set construction and false negative sample filtering, respectively
+Run the following two python scripts for hard negative candidate set construction and false negative sample filtering, respectively.
 
 ```bash
 cd Src
@@ -61,6 +61,7 @@ pip install -e ".[torch,metrics]"
 ```
 
 **Multilingual Instruction Fine-tuning**
+
 First, we use multilingual version of the Alpaca dataset for multilingual instruction fine-tuning. The multilingual version of the Alpaca dataset is obtained by running the following script.
 
 ```bash
@@ -68,7 +69,7 @@ cd Src
 python LLM_generation/translate.py
 ```
 
-​Then, replace the yaml file in the LLM_generation folder with the corresponding file(examples/train_lora/llama3_lora_sft_ds3.yaml、examples/merge_lora/llama3_lora_sft.yaml) in the LLaMA-Factory. And run the following two commands for LoRA fine-tuning and model merging
+​Then, replace the yaml file in the LLM_generation folder with the corresponding file(examples/train_lora/llama3_lora_sft_ds3.yaml、examples/merge_lora/llama3_lora_sft.yaml) in the LLaMA-Factory. And run the following two commands for LoRA fine-tuning and model merging.
 
 ```bash
 llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
@@ -88,7 +89,7 @@ python hard_neg/candidate_generation.py
 ## 5. Train and EvaluationEnvironment <a name="train-and-evaluation"></a>
 
 **Tevatron installation**
-We use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for DMDR training. Run the following command for a quick tevatron installation
+We use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for DMDR training. Run the following command for a quick tevatron installation.
 
 ```bash
 cd src/tevatron
@@ -196,6 +197,7 @@ nohup python -m tevatron.faiss_retriever \
 
 
 **Evaluation**
+
 Finally, use the pyserini tool to evaluate the retrieval performance by running the following command.
 
   ```bash
