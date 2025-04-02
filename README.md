@@ -41,11 +41,11 @@ For public datasets and checkpoints can be download from [MIRACL](https://huggin
 
 Negative sample candidate set generation and false negative sample filtering are performed by running the following commands.
 
-```
+'''
 cd Src
 python hard_neg/candidate_generation.py
 python hard_neg/llm_fitering.py
-```
+'''
 
 ## 4.LLM-aided Hard Negative Generation
 
