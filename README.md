@@ -25,7 +25,7 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 * [LLM-aided hard negative samples generation](#llm-aided-hard-negative-samples-generation)
 * [Train and Evaluation](#train-and-evaluation)
 
-## 1. Environment
+## 1. Environment <a name="environment"></a>
 Follow the commands below to establish a plausible environment.
 ```bash
 conda create --name dmdr python=3.7
@@ -33,11 +33,11 @@ conda activate dmdr
 pip install -r requirements.txt
 ```
 
-## 2. Data and Models Preparation
+## 2. Data and Models Preparation <a name="data-and-models-preparation"></a>
 
 For public datasets and checkpoints can be download from [MIRACL](https://huggingface.co/datasets/miracl/miracl-corpus)、[Alpaca](https://github.com/tatsu-lab/stanford_alpaca)、[mDPR](https://huggingface.co/castorini/mdpr-tied-pft-msmarco)、[mE5<sub>large</sub>](https://huggingface.co/intfloat/multilingual-e5-large) and [BGE](https://huggingface.co/BAAI/bge-m3). And put them in the Data and PLM folders.
 
-## 3. Negative samples construction and False negative samples filtering
+## 3. Negative samples construction and False negative samples filtering <a name="negative-samples-construction-and-false-negative-samples-filtering"></a>
 
 Run the following two python scripts for hard negative candidate set construction and false negative sample filtering, respectively
 
@@ -47,7 +47,7 @@ python hard_neg/candidate_generation.py
 python hard_neg/llm_fitering.py
 ```
 
-## 4.LLM-aided Hard Negative Generation
+## 4.LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-samples-generation"></a>
 
 **LLaMA-Factory installation**
 
@@ -83,7 +83,7 @@ python LLM_generation/inference.py
 python hard_neg/candidate_generation.py
 ```
 
-## 5.Train and Evaluation
+## 5.Train and EvaluationEnvironment <a name="train-and-evaluation"></a>
 
 **Tevatron installation**
 
