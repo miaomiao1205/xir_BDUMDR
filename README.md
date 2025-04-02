@@ -33,19 +33,19 @@ conda activate dmdr
 pip install -r requirements.txt
 ```
 
-## 2.Data and Models Preparation
+## 2. Data and Models Preparation
 
-For public datasets and checkpoints can be download from [MIRACL](https://huggingface.co/datasets/miracl/miracl-corpus)、[Alpaca](https://github.com/tatsu-lab/stanford_alpaca)、[mDPR](https://huggingface.co/castorini/mdpr-tied-pft-msmarco)、[mE5<sub>large</sub>](https://huggingface.co/intfloat/multilingual-e5-large) and [BGE](https://huggingface.co/BAAI/bge-m3). Then put them in the Data and PLM folders.
+For public datasets and checkpoints can be download from [MIRACL](https://huggingface.co/datasets/miracl/miracl-corpus)、[Alpaca](https://github.com/tatsu-lab/stanford_alpaca)、[mDPR](https://huggingface.co/castorini/mdpr-tied-pft-msmarco)、[mE5<sub>large</sub>](https://huggingface.co/intfloat/multilingual-e5-large) and [BGE](https://huggingface.co/BAAI/bge-m3). And put them in the Data and PLM folders.
 
-## 3.Negative samples construction and False negative samples filtering
+## 3. Negative samples construction and False negative samples filtering
 
-Negative sample candidate set generation and false negative sample filtering are performed by running the following commands.
+Run the following two python scripts for hard negative candidate set construction and false negative sample filtering, respectively
 
-'''
+```
 cd Src
 python hard_neg/candidate_generation.py
 python hard_neg/llm_fitering.py
-'''
+```
 
 ## 4.LLM-aided Hard Negative Generation
 
