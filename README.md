@@ -39,7 +39,7 @@ For public datasets and checkpoints can be download from [MIRACL](https://huggin
 
 ## 3. Negative samples construction and False negative samples filtering <a name="negative-samples-construction-and-false-negative-samples-filtering"></a>
 
-Run the following two python scripts for hard negative candidate set construction and false negative sample filtering, respectively.
+Run the following two python scripts for hard negative candidate set construction and false negative sample filtering([GPT-4o](https://platform.openai.com/docs/models/gpt-4o)), respectively.
 
 ```bash
 cd Src
@@ -62,7 +62,7 @@ pip install -e ".[torch,metrics]"
 
 >**Multilingual Instruction Fine-tuning**
 
-First, we use multilingual version of the Alpaca dataset for multilingual instruction fine-tuning. The multilingual version of the Alpaca dataset is obtained by running the following script.
+First, we use multilingual version of the Alpaca dataset obstained by [Google Translate](https://cloud.google.com/translate/docs/basic/translating-text) for multilingual instruction fine-tuning. The multilingual version of the Alpaca dataset is obtained by running the following script.
 
 ```bash
 cd Src
@@ -217,5 +217,4 @@ Finally, use the pyserini tool to evaluate the retrieval performance by running 
 
 # License
 This repository is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
-  
 
