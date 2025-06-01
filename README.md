@@ -26,8 +26,8 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 * [Hard Negatives Set Construction](#hard-negatives-set-construction)
   * [Hard Negative Candidate Initialization](#hard-negative-candidate-initialization)
   * [False Negative Selection](#false-negative-selection)
-* [LLM-aided hard negative generation](#llm-aided-hard-negative-generation)
-* [Train and Evaluation](#train-and-evaluation)
+* [LLM-aided Hard Negative Generation](#llm-aided-hard-negative-generation)
+* [Train Multilingual Dense Retriever](#train-multilingual-dense-retriever)
 
 ## 1. Environment <a name="environment"></a>
 Follow the commands below to establish a plausible environment.
@@ -45,7 +45,7 @@ For public datasets and checkpoints can be download from [MIRACL](https://huggin
 
 ### 3.1 Hard Negative Candidate Initialization <a name="hard-negative-candidate-initialization"></a> 
 
-Run the following python script for multilingual retriever ensemble.
+Please run the following python script for multilingual retriever ensemble.
 
 ```bash
 cd Src
@@ -125,18 +125,18 @@ python hard_neg/convert.py
 
 ### 3.2 False Negative Selection <a name="false-negative-selection"></a>
 
-Run the following python script for false negative selection.
+Please run the following python script for false negative selection.
 
 ```bash
 cd Src
 python hard_neg/false_neg_select.py
 ```
 
-The candidate negatives beyond false negatives  will place in the /Output/select folder.
+The candidate negatives beyond false negatives will place in the /Output/select folder.
 
 ## 4. LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-generation"></a>
 
-First, run the following python script to select data with less than 30 hard negatives for negatives generation.
+First, please run the following python script to select data with less than 30 hard negatives for negatives generation.
 
 ```bash
 cd Src
@@ -150,7 +150,7 @@ Then, we finetune Llama-3.1-70B-instruct with the [LLaMA-Factory](https://github
 
 >**LLaMA-Factory installation**
 
-Run the following command to quickly install LLaMA-Factory.
+Please run the following command to quickly install LLaMA-Factory.
 
 ```bash
 cd ～
@@ -169,7 +169,7 @@ python LLM_generation/translate.py
 ```
  
 
-​Then, replace the yaml file and dataset_info.json in the LLM_generation folder with the corresponding file(examples/train_lora/llama3_lora_sft_ds3.yaml, examples/merge_lora/llama3_lora_sft.yaml, data/dataset_info.json) in the LLaMA-Factory folder. And run the following two commands for LoRA fine-tuning and model merging.
+​Then, please replace the yaml file and dataset_info.json in the LLM_generation folder with the corresponding file(examples/train_lora/llama3_lora_sft_ds3.yaml, examples/merge_lora/llama3_lora_sft.yaml, data/dataset_info.json) in the LLaMA-Factory folder. And run the following two commands for LoRA fine-tuning and model merging.
 
 ```bash
 llamafactory-cli train examples/train_lora/llama3_lora_sft_ds3.yaml
@@ -178,7 +178,7 @@ llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml
 
 >**Hard Negative Samples Generation**
 
-First, use the following two scripts to generate summary and query in turn.
+First, please use the following two scripts to generate summary and query in turn.
 
 ```bash
 cd Src
@@ -186,9 +186,11 @@ python LLM_generation/generate_summary.py
 python LLM_generation/generate_query.py
 ```
 
-The generated summaries and queries will be placed in the /Output/generate/summary and /Output/generate/query folders, respectively. Then, repeat as in section 3, replacing the --encode_in_path in Query Encoding with /Output/generate/query/{lang}.jsonl. Finally, the number of hard negatives for each data is made to reach 30, and will place in the /Data/train_aug folder.
+The generated summaries and queries will be placed in the /Output/generate/summary and /Output/generate/query folders, respectively. 
 
-## 5. Train and EvaluationEnvironment <a name="train-and-evaluation"></a>
+Then, repeat as in section 3, replacing the --encode_in_path in **Query Encoding** with /Output/generate/query/{lang}.jsonl. Finally, the number of hard negatives for each data is made to reach 30, and will place in the /Data/train_aug folder.
+
+## 5. Train Multilingual Dense Retriever <a name="train-multilingual-dense-retriever"></a>
 
 >**Topic Classification**
 
@@ -204,7 +206,7 @@ The labeled data will place in the /Data/train_label folder.
 
 >**Tevatron installation**
 
-Then, we use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for DMDR training. Run the following command for a quick tevatron installation.
+Then, we use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for training multilingual dense retriever. Please run the following command for a quick tevatron installation.
 
 ```bash
 cd src/tevatron
