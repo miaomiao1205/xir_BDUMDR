@@ -24,6 +24,8 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 * [Environment](#environment)
 * [Data and Models Preparation](#data-and-models-preparation)
 * [Hard Negatives Set Construction](#hard-negatives-set-construction)
+  *[Hard Negative Candidate Initialization](#hard-negative-candidate-initialization)
+  *[False Negative Selection](#false-negative-selection)
 * [LLM-aided hard negative samples generation](#llm-aided-hard-negative-samples-generation)
 * [Train and Evaluation](#train-and-evaluation)
 
@@ -41,7 +43,9 @@ For public datasets and checkpoints can be download from [MIRACL](https://huggin
 
 ## 3. Hard Negatives Set Construction <a name="hard-negatives-set-construction"></a>
 
-### 3.1 Hard Negative Candidate Initialization 
+### 3.1 Hard Negative Candidate Initialization <a name="hard-negative-candidate-initialization"></a> 
+
+### 3.2 False Negative Selection <a name="false-negative-selection"></a>
 
 Run the following two python scripts for hard negative candidate set construction and false negative sample filtering([GPT-4o](https://platform.openai.com/docs/models/gpt-4o)), respectively.
 
