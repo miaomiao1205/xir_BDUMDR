@@ -135,7 +135,18 @@ python hard_neg/false_neg_select.py
 The candidate negatives beyond false negatives  will place in the /Output/select folder.
 
 ## 4. LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-generation"></a>
-At this stage, we finetune LLaMA-3.1-70B with the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) tool to generate difficult negative samples.
+
+First, run the following python script to select data with less than 30 hard negatives for negatives generation.
+
+```bash
+cd Src
+python llm_generation/hard_neg_expand.py
+```
+
+The data with less than 30 hard negatives will place in the /Output/expand folder.
+
+
+Then, we finetune LLaMA-3.1-70B with the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) tool to generate hard negative.
 
 >**LLaMA-Factory installation**
 
