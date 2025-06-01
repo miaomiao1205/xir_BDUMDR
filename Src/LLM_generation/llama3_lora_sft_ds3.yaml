@@ -8,10 +8,10 @@ do_train: true
 finetuning_type: lora
 lora_rank: 8
 lora_target: all
-deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
+deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: identity,alpaca_en_demo
+dataset: sft
 template: llama3
 cutoff_len: 2048
 max_samples: 1000
@@ -37,10 +37,3 @@ warmup_ratio: 0.1
 bf16: true
 ddp_timeout: 180000000
 resume_from_checkpoint: null
-
-### eval
-# eval_dataset: alpaca_en_demo
-# val_size: 0.1
-# per_device_eval_batch_size: 1
-# eval_strategy: steps
-# eval_steps: 500
