@@ -24,8 +24,8 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 * [Environment](#environment)
 * [Data and Models Preparation](#data-and-models-preparation)
 * [Hard Negatives Set Construction](#hard-negatives-set-construction)
-  *[Hard Negative Candidate Initialization](#hard-negative-candidate-initialization)
-  *[False Negative Selection](#false-negative-selection)
+  * [Hard Negative Candidate Initialization](#hard-negative-candidate-initialization)
+  * [False Negative Selection](#false-negative-selection)
 * [LLM-aided hard negative samples generation](#llm-aided-hard-negative-samples-generation)
 * [Train and Evaluation](#train-and-evaluation)
 
