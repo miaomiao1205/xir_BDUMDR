@@ -23,15 +23,15 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 # Table of Contents:
 * [Environment](#environment)
 * [Data and Models Preparation](#data-and-models-preparation)
-* [Negative samples construction and False negative samples filtering](#negative-samples-construction-and-false-negative-samples-filtering)
+* [Hard Negatives Set Construction](#hard-negatives-set-construction)
 * [LLM-aided hard negative samples generation](#llm-aided-hard-negative-samples-generation)
 * [Train and Evaluation](#train-and-evaluation)
 
 ## 1. Environment <a name="environment"></a>
 Follow the commands below to establish a plausible environment.
 ```bash
-conda create --name dmdr python=3.7
-conda activate dmdr
+conda create --name xir python=3.7
+conda activate xir
 pip install -r requirements.txt
 ```
 
@@ -39,7 +39,9 @@ pip install -r requirements.txt
 
 For public datasets and checkpoints can be download from [MIRACL](https://huggingface.co/datasets/miracl/miracl-corpus)、[Alpaca](https://github.com/tatsu-lab/stanford_alpaca)、[mDPR](https://huggingface.co/castorini/mdpr-tied-pft-msmarco)、[mE5<sub>large</sub>](https://huggingface.co/intfloat/multilingual-e5-large) and [BGE](https://huggingface.co/BAAI/bge-m3). And put them in the Data and PLM folders.
 
-## 3. Negative samples construction and False negative samples filtering <a name="negative-samples-construction-and-false-negative-samples-filtering"></a>
+## 3. Hard Negatives Set Construction <a name="hard-negatives-set-construction"></a>
+
+### 3.1 Hard Negative Candidate Initialization 
 
 Run the following two python scripts for hard negative candidate set construction and false negative sample filtering([GPT-4o](https://platform.openai.com/docs/models/gpt-4o)), respectively.
 
