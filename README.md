@@ -26,7 +26,7 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 * [Hard Negatives Set Construction](#hard-negatives-set-construction)
   * [Hard Negative Candidate Initialization](#hard-negative-candidate-initialization)
   * [False Negative Selection](#false-negative-selection)
-* [LLM-aided hard negative samples generation](#llm-aided-hard-negative-samples-generation)
+* [LLM-aided hard negative generation](#llm-aided-hard-negative-generation)
 * [Train and Evaluation](#train-and-evaluation)
 
 ## 1. Environment <a name="environment"></a>
@@ -134,7 +134,7 @@ python hard_neg/false_neg_select.py
 
 The candidate negatives beyond false negatives  will place in the /Output/select folder.
 
-## 4. LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-samples-generation"></a>
+## 4. LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-generation"></a>
 At this stage, we finetune LLaMA-3.1-70B with the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) tool to generate difficult negative samples.
 
 >**LLaMA-Factory installation**
