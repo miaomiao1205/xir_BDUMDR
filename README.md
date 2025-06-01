@@ -196,31 +196,32 @@ Before training the multilingual dense retriver, please use the following python
 
 ```bash
 cd Src
-python LLM_generation/generate_summary.py
+python domain_class/domain_classification.py
 ```
+
+The labeled data will place in the /Data/train_label folder.
 
 
 >**Tevatron installation**
 
-We use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for DMDR training. Run the following command for a quick tevatron installation.
+Then, we use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for DMDR training. Run the following command for a quick tevatron installation.
 
 ```bash
 cd src/tevatron
 pip install --editable .
 ```
 
->**Train**
+>**Training**
 
-We train on a machine with 2xH100 GPU, if the GPU resources are limited for you, please train with gradient cache. To train DMDR, please run the following commands.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1 nohup python -m torch.distributed.launch --master_port 22345 --nproc_per_node=2 -m tevatron.driver.train \
-  --output_dir xxx \
+  --output_dir ./PLM/mldr_3_6_16_12_8 \
   --do_train \
-  --model_name_or_path xxx \
+  --model_name_or_path ./PLM/ \
   --dataset_name Tevatron/msmarco-passage \
   --data_cache_dir ./msmarco-passage-train-cache \
-  --train_dir xxx \
+  --train_dir  ./Data/train_label \
   --save_steps 10000 \
   --q_max_len 64 \
   --p_max_len 256 \
@@ -238,10 +239,10 @@ The query and document lengths are set to 64 and 256, train_n_passages is set to
 
 >**Encoding**
 
-After training, we need to encode the query and the document separately. To encode query and corpus, use the following two commands, respectively.
+**Query Encoding**
+
 
 ```bash
-# encoding query
 
 #!/bin/bash
 
@@ -251,21 +252,20 @@ PARAM=$3
 
 CUDA_VISIBLE_DEVICES=${ID} nohup python -m tevatron.driver.encode \
   --output_dir=temp \
-  --model_name_or_path xxx \
+  --model_name_or_path ./PLM/mldr_${PARAM} \
   --fp16 \
   --per_device_eval_batch_size 156 \
   --data_cache_dir ./msmarco-passage-train-cache \
   --dataset_name Tevatron/msmarco-passage \
-  --encode_in_path ./DATA/miracl/query/${LANG}.jsonl \
-  --encoded_save_path ${LANG}_${PARAM}.pkl \
+  --encode_in_path ./Data/miracl/query/${LANG}.jsonl \
+  --encoded_save_path ./Output/miracl/query/${LANG}_${PARAM}.pkl \
   --q_max_len 64 \
   --encode_is_qry > 
 ```
 
-Encoding corpus
+**Corpus Encoding**
 
 ```bash
-# encoding corpus
 #!/bin/bash
 
 ID=$1
@@ -276,22 +276,21 @@ for s in $(seq -f "%02g" 0 5)
 do
   CUDA_VISIBLE_DEVICES=${ID} nohup python -m tevatron.driver.encode \
     --output_dir=temp \
-    --model_name_or_path ./model/mma_model_${PARAM} \
+    --model_name_or_path ./PLM/mldr_${PARAM} \
     --fp16 \
     --per_device_eval_batch_size 156 \
     --dataset_name Tevatron/msmarco-passage-corpus \
     --data_cache_dir ./msmarco-passage-train-cache \
     --p_max_len 256 \
-    --encode_in_path ./DATA/miracl/corpus/${LANG}.jsonl \
-    --encoded_save_path ${LANG}_${PARAM}_${s}.pkl \
+    --encode_in_path ./Data/miracl/corpus/${LANG}.jsonl \
+    --encoded_save_path ./Output/miracl/corpus/${LANG}_${PARAM}_${s}.pkl \
     --encode_num_shard 6 \
     --encode_shard_index ${s}
 done
 ```
 
->**Dense Retrieval**
+>**Retrieval**
 
-After encoding the query and document, vector retrieval is performed using faiss on the two resulting .pkl files by running the following command.
 
 ```bash
 #!/bin/bash
@@ -300,18 +299,17 @@ LANG=$1
 PARAM=$2
 
 nohup python -m tevatron.faiss_retriever \
-  --query_reps ${LANG}/${LANG}_${PARAM}.pkl \
-  --passage_reps ${LANG}/"${LANG}_${PARAM}*.pkl" \
+  --query_reps ./Output/miracl/query/${LANG}/${LANG}_${PARAM}.pkl \
+  --passage_reps ./Output/miracl/corpus/${LANG}/"${LANG}_${PARAM}*.pkl" \
   --depth 100 \
   --batch_size -1 \
   --save_text \
-  --save_ranking_to xxx
+  --save_ranking_to ./Output/miracl/rank/${LANG}/${LANG}_${PARAM}.txt
 ```
 
 
 >**Evaluation**
 
-Finally, use the pyserini tool to evaluate the retrieval performance by running the following command.
 
   ```bash
   #!/bin/bash
@@ -320,12 +318,12 @@ Finally, use the pyserini tool to evaluate the retrieval performance by running 
   PARAM=$2
   
   python -m tevatron.utils.format.convert_result_to_trec \
-    --input ${LANG}_${PARAM}.txt \
-    --output ${LANG}_${PARAM}.trec
+    --input ./Output/miracl/rank/${LANG}_${PARAM}.txt \
+    --output ./Output/miracl/trec/${LANG}_${PARAM}.trec
   
   python -m pyserini.eval.trec_eval \
       -m recall.100 -m ndcg_cut.10 \
-      ${LANG}.tsv ${LANG}_${PARAM}.trec
+      ./Data/miracl/dev/${LANG}.tsv ./Output/miracl/trec/${LANG}_${PARAM}.trec
   ```
 
 # License
