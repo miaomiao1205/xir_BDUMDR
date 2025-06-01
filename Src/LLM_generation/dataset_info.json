@@ -3,7 +3,7 @@
     "file_name": "identity.json"
   },
   "sft": {
-    "file_name": "./Output/alpaca/alpaca_all.jsonl"
+    "file_name": "./alpaca_all.jsonl"
   }
   
 }
