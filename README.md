@@ -45,14 +45,91 @@ For public datasets and checkpoints can be download from [MIRACL](https://huggin
 
 ### 3.1 Hard Negative Candidate Initialization <a name="hard-negative-candidate-initialization"></a> 
 
-### 3.2 False Negative Selection <a name="false-negative-selection"></a>
-
-Run the following two python scripts for hard negative candidate set construction and false negative sample filtering([GPT-4o](https://platform.openai.com/docs/models/gpt-4o)), respectively.
+Run the following python script for multilingual retriever ensemble.
 
 ```bash
 cd Src
-python hard_neg/candidate_generation.py
-python hard_neg/llm_fitering.py
+python hard_neg/fusion_model.py
+```
+
+>**Query Encoding**
+```bash
+#!/bin/bash
+
+ID=$1
+LANG=$2
+PARAM=$3
+
+CUDA_VISIBLE_DEVICES=${ID} nohup python -m tevatron.driver.encode \
+  --output_dir=temp \
+  --model_name_or_path ./PLM/fusion_model \
+  --fp16 \
+  --per_device_eval_batch_size 156 \
+  --data_cache_dir ./msmarco-passage-train-cache \
+  --dataset_name Tevatron/msmarco-passage \
+  --encode_in_path ./Data/miracl/query/${LANG}.jsonl \
+  --encoded_save_path ./Output/query/${LANG}/${LANG}_${PARAM}.pkl \
+  --q_max_len 64 \
+  --encode_is_qry 
+```
+
+>**Corpus Encoding**
+```bash
+#!/bin/bash
+
+ID=$1
+LANG=$2
+PARAM=$3
+
+for s in $(seq -f "%02g" 0 5)
+do
+  CUDA_VISIBLE_DEVICES=${ID} nohup python -m tevatron.driver.encode \
+    --output_dir=temp \
+    --model_name_or_path ./PLM/fusion_model \
+    --fp16 \
+    --per_device_eval_batch_size 156 \
+    --dataset_name Tevatron/msmarco-passage-corpus \
+    --data_cache_dir ./msmarco-passage-train-cache \
+    --p_max_len 256 \
+    --encode_in_path ./Data/miracl/corpus/${LANG}.jsonl \
+    --encoded_save_path ./Output/corpus//${LANG}/${LANG}_${PARAM}.pkl \
+    --encode_num_shard 6 \
+    --encode_shard_index ${s}
+done
+```
+
+>**Retrieval**
+```bash
+#!/bin/bash
+
+LANG=$1
+PARAM=$2
+
+nohup python -m tevatron.faiss_retriever \
+  --query_reps ./Output/query/${LANG}/${LANG}_${PARAM}.pkl \
+  --passage_reps ./Output/corpus/${LANG}/"${LANG}_${PARAM}*.pkl" \
+  --depth 40 \
+  --batch_size -1 \
+  --save_text \
+  --save_ranking_to .\Output\rank\/${LANG}/${LANG}_${PARAM}.txt
+```
+The output file is in the format of <query_id> <passage_id> <score> in each line. 
+
+Run the following python script to find the corresponding passage in corpus according to <passage_id>.
+
+```bash
+cd Src
+python hard_neg/convert.py
+```
+
+
+### 3.2 False Negative Selection <a name="false-negative-selection"></a>
+
+Run the following python script for false negative selection([GPT-4o](https://platform.openai.com/docs/models/gpt-4o)).
+
+```bash
+cd Src
+python hard_neg/false_neg_select.py
 ```
 
 ## 4. LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-samples-generation"></a>
