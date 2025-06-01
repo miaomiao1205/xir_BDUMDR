@@ -146,13 +146,14 @@ python llm_generation/hard_neg_expand.py
 The data with less than 30 hard negatives will place in the /Output/expand folder.
 
 
-Then, we finetune LLaMA-3.1-70B with the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) tool to generate hard negative.
+Then, we finetune Llama-3.1-70B-instruct with the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) tool to generate hard negative.
 
 >**LLaMA-Factory installation**
 
 Run the following command to quickly install LLaMA-Factory.
 
 ```bash
+cd ～
 git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
 cd LLaMA-Factory
 pip install -e ".[torch,metrics]"
@@ -166,27 +167,41 @@ First, we use multilingual version of the Alpaca dataset obstained by [Google Tr
 cd Src
 python LLM_generation/translate.py
 ```
+ 
 
-​Then, replace the yaml file in the LLM_generation folder with the corresponding file(examples/train_lora/llama3_lora_sft_ds3.yaml、examples/merge_lora/llama3_lora_sft.yaml) in the LLaMA-Factory. And run the following two commands for LoRA fine-tuning and model merging.
+​Then, replace the yaml file and dataset_info.json in the LLM_generation folder with the corresponding file(examples/train_lora/llama3_lora_sft_ds3.yaml, examples/merge_lora/llama3_lora_sft.yaml, data/dataset_info.json) in the LLaMA-Factory folder. And run the following two commands for LoRA fine-tuning and model merging.
 
 ```bash
-llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
+llamafactory-cli train examples/train_lora/llama3_lora_sft_ds3.yaml
 llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml
 ```
 
 >**Hard Negative Samples Generation**
 
-Use the following two scripts to generate the summary, the query, and the hard negative samples in turn.
+First, use the following two scripts to generate summary and query in turn.
 
 ```bash
 cd Src
-python LLM_generation/inference.py
-python hard_neg/candidate_generation.py
+python LLM_generation/generate_summary.py
+python LLM_generation/generate_query.py
 ```
+
+The generated summaries and queries will be placed in the /Output/generate/summary and /Output/generate/query folders, respectively. Then, repeat as in section 3, replacing the --encode_in_path in Query Encoding with /Output/generate/query/{lang}.jsonl. Finally, the number of hard negatives for each data is made to reach 30, and will place in the /Data/train_aug folder.
 
 ## 5. Train and EvaluationEnvironment <a name="train-and-evaluation"></a>
 
+>**Topic Classification**
+
+Before training the multilingual dense retriver, please use the following python script to add topic labels to each piece of data. This label will be used later in the training. The labeled data will place in the /Data/train_label folder.
+
+```bash
+cd Src
+python LLM_generation/generate_summary.py
+```
+
+
 >**Tevatron installation**
+
 We use the [tevatron](https://github.com/texttron/tevatron/tree/tevatron-v1) tool for DMDR training. Run the following command for a quick tevatron installation.
 
 ```bash
