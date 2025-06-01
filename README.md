@@ -30,7 +30,7 @@ Our DMDR framework including three stages: i) construction of hard negative set,
 * [Train Multilingual Dense Retriever](#train-multilingual-dense-retriever)
 
 ## 1. Environment <a name="environment"></a>
-Follow the commands below to establish a plausible environment.
+Please follow the commands below to establish a plausible environment.
 ```bash
 conda create --name xir python=3.7
 conda activate xir
