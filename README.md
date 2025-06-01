@@ -115,7 +115,7 @@ nohup python -m tevatron.faiss_retriever \
 ```
 The output file is in the format of <query_id> <passage_id> <score> in each line. 
 
-Run the following python script to find the corresponding passage in corpus according to <passage_id>.
+Then, run the following python script to find the corresponding passage in corpus according to <passage_id>. The candidate negatives will place in the /Output/candidate folder.
 
 ```bash
 cd Src
@@ -125,12 +125,14 @@ python hard_neg/convert.py
 
 ### 3.2 False Negative Selection <a name="false-negative-selection"></a>
 
-Run the following python script for false negative selection([GPT-4o](https://platform.openai.com/docs/models/gpt-4o)).
+Run the following python script for false negative selection.
 
 ```bash
 cd Src
 python hard_neg/false_neg_select.py
 ```
+
+The candidate negatives beyond false negatives  will place in the /Output/select folder.
 
 ## 4. LLM-aided Hard Negative Generation <a name="llm-aided-hard-negative-samples-generation"></a>
 At this stage, we finetune LLaMA-3.1-70B with the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) tool to generate difficult negative samples.
